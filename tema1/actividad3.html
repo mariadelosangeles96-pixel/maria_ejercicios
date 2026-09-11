@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let precioSimple = Number(prompt("Precio habitación simple:"));
+        let precioDoble = Number(prompt("Precio habitación doble:"));
+        let precioSuite = Number(prompt("Precio habitación suite:"));
+
+        let cantidadNoches = Number(prompt("Cantidad de noches:"));
+        let tipoHabitacion = (prompt("Tipo de habitación (simple, doble, suite):"));
+
+        let precioTotal = 0;
+
+        if (tipoHabitacion == "simple") {
+            precioTotal = precioSimple*cantidadNoches;
+        }else if (tipoHabitacion == "doble"){
+            precioTotal = precioDoble*cantidadNoches;
+        }else if(tipoHabitacion == "suite"){
+            precioTotal = precioSuite*cantidadNoches;
+        } else {
+            alert("Tipo de habitación no válido.")
+        }
+
+        alert("El precio total será de " + precioTotal);
+    </script>
+</body>
+</html>
