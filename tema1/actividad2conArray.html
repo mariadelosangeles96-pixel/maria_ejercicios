@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let numeros = [
+            Number(prompt("Número a:")),
+            Number(prompt("Número b:")),
+            Number(prompt("Número c:")),
+            Number(prompt("Número d:")),
+            Number(prompt("Número e:"))
+        ];
+
+        let mayor = numeros[0];
+        let posicion = 0;
+
+        for (i = 1; i < numeros.length; i++) {
+            if (numeros[i] > mayor) {
+                mayor = numeros[i];
+                posicion = i;
+            }
+        }
+
+        console.log("El mayor es " + mayor + ". Posición: " + (posicion + 1));
+    </script>
+</body>
+
+</html>

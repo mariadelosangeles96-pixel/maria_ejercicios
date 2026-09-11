@@ -6,6 +6,54 @@
     <title>Frutas</title>
 </head>
 <body>
-    
+    <script>
+        let tipoFruta1 = prompt("Tipo de fruta 1");
+        let precio1 = Number(prompt("Precio/kilo fruta 1"));
+        let cantidad1 = 20;
+        let tipoFruta2 = prompt("Tipo de fruta 2");
+        let precio2 = Number(prompt("Precio/kilo fruta 2"));
+        let cantidad2 = 30;
+        let tipoFruta3 = prompt("Tipo de fruta 3");
+        let precio3 = Number(prompt("Precio/kilo fruta 3"));
+        let cantidad3 = 25;
+
+        alert("Bienvenido. Hoy tenemos: " 
+        + tipoFruta1 + ", " + cantidad1 + " unidades, a " + precio1 + "€/kilo, " 
+        + tipoFruta2 + ", " + cantidad2 + " unidades, a " + precio2 + "€/kilo, " 
+        + tipoFruta3 + ", " + cantidad3 + " unidades, a " + precio3 + "€/kilo.");
+        
+        let pedirFruta = prompt("¿Qué fruta quieres?");
+        if(pedirFruta != tipoFruta1 && pedirFruta != tipoFruta2 && pedirFruta != tipoFruta3){ 
+            alert("Fruta no disponible")
+        };
+        let pedirCantidad = Number(prompt("¿Cuántas unidades de " + pedirFruta + " quieres?"));
+        let precioTotal = 0;
+
+        if(pedirFruta == tipoFruta1){
+            if(pedirCantidad > cantidad1){
+                alert("No hay suficientes unidades. A pagar: " + precioTotal);
+            } else {
+                precioTotal = precio1*pedirCantidad;
+                alert("Se le cobran " + precioTotal + "€.");
+            }
+        }
+        if(pedirFruta == tipoFruta2){
+            if(pedirCantidad > cantidad2){
+                alert("No hay suficientes unidades. A pagar: " + precioTotal);
+            } else {
+                precioTotal = precio2*pedirCantidad;
+                alert("Se le cobran " + precioTotal + "€.");
+            }
+        }
+        if(pedirFruta == tipoFruta3){
+            if(pedirCantidad > cantidad3){
+                alert("No hay suficientes unidades. A pagar: " + precioTotal);
+            } else {
+                precioTotal = precio3*pedirCantidad;
+                alert("Se le cobran " + precioTotal + "€.");
+            }
+        }
+
+    </script>
 </body>
 </html>
