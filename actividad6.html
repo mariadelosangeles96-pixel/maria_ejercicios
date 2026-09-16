@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piedra, papel, tijera</title>
+</head>
+<body>
+    <script>
+        let jugador1 = prompt("Jugador 1, ¿qué quieres sacar?");
+        let jugador2 = prompt("Jugador 2, ¿qué quieres sacar?");
+
+        if (jugador1 === "piedra" && jugador2 === "papel"){
+            alert("Jugador 2 gana.");
+        } else if (jugador1 === "piedra" && jugador2 === "tijera"){
+            alert("Jugador 1 gana.");
+        } else if (jugador1 === "papel" && jugador2 === "piedra"){
+            alert("Jugador 1 gana.");
+        } else if (jugador1 === "papel" && jugador2 === "tijera"){
+            alert("Jugador 2 gana.")
+        } else if (jugador1 === "tijera" && jugador2 === "piedra"){
+            alert("Jugador 2 gana.");
+        } else if (jugador1 === "tijera" && jugador2 === "papel"){
+            alert("Jugador 1 gana.")
+        } else if (jugador1 === jugador2){
+            alert("Empate.")
+        } else {
+            alert("Opción no válida. Introduce piedra, papel o tijera.")
+        }
+    </script>
+</body>
+</html>

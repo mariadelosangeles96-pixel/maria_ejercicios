@@ -3,32 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chinos</title>
+    <title>Document</title>
 </head>
 <body>
     <script>
-        let monedas = [];
-        for(let i = 1; i < 5; i++){
-            let pedir = Number(prompt("¿Cuántas monedas tienes?"));
-            monedas.push(pedir);
+        let monedas1 = Number(prompt("¿Cuántas monetas tienes? (0-3)"));
+        if(monedas1 < 0 || monedas1 > 3){
+            monedas1 = Number(prompt("Cantidad de monedas no válida. Introduce un número del 0 al 3."));
+        }
+        let monedas2 = Number(prompt("¿Cuántas monetas tienes? (0-3)"));
+        if(monedas2 < 0 || monedas2 > 3){
+            monedas2 = Number(prompt("Cantidad de monedas no válida. Introduce un número del 0 al 3."));
+        }
+        let monedas3 = Number(prompt("¿Cuántas monetas tienes? (0-3)"));
+        if(monedas3 < 0 || monedas3 > 3){
+            monedas3 = Number(prompt("Cantidad de monedas no válida. Introduce un número del 0 al 3."));
+        }
+        let monedas4 = Number(prompt("¿Cuántas monetas tienes? (0-3)"));
+        if(monedas4 < 0 || monedas4 > 3){
+            monedas4 = Number(prompt("Cantidad de monedas no válida. Introduce un número del 0 al 3."));
         }
 
-        let totalMonedas = 0;
-        for (let i = 0; i < monedas.length; i++){
-            totalMonedas += monedas[i];
-        }
-        console.log(totalMonedas);
+        let totalMonedas = monedas1 + monedas2 + monedas3 + monedas4;
 
-        let intentos = [];
-        for(let i = 0; i < 4; i++){
-            let adivinar = Number(prompt("¿Cuántas monedas crees que hay en total?"));
-            intentos.push(adivinar);
+        let intento1 = Number(prompt("¿Cuántas monedas crees que hay en total?"));
+        let intento2 = Number(prompt("¿Cuántas monedas crees que hay en total?"));
+        let intento3 = Number(prompt("¿Cuántas monedas crees que hay en total?"));
+        let intento4 = Number(prompt("¿Cuántas monedas crees que hay en total?"));
+
+        let hayGanadores = false;
+
+        if(intento1 == totalMonedas){
+            alert("Jugador 1 ha ganado la partida.");
+            hayGanadores = true;
+        }
+        if(intento2 == totalMonedas){
+            alert("Jugador 2 ha ganado la partida.");
+            hayGanadores = true;
+        }
+        if(intento3 == totalMonedas){
+            alert("Jugador 3 ha ganado la partida.");
+            hayGanadores = true;
+        }
+        if(intento4 == totalMonedas){
+            alert("Jugador 4 ha ganado la partida.");
+            hayGanadores = true;
         }
 
-        for(let i = 1; i < 5; i++){
-            if(intentos[i] == totalMonedas){
-                alert("Jugador " + i + " ha ganado la partida. ")
-            }
+        if(!hayGanadores){
+            alert("Nadie ha ganado. El total de monedas era " + totalMonedas);
         }
     </script>
 </body>

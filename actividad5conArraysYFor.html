@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chinos</title>
+</head>
+<body>
+    <script>
+        let monedas = [];
+        for(let i = 0; i < 4; i++){
+            let pedir = Number(prompt("¿Cuántas monedas tienes?"));
+            while(pedir < 0 || pedir > 3){
+                pedir = Number(prompt("Cantidad no válida. Introduce un número de 0 a 3."))
+            }
+            monedas.push(pedir);
+        }
+
+        let totalMonedas = 0;
+        for (let i = 0; i < monedas.length; i++){
+            totalMonedas += monedas[i];
+        }
+        console.log(totalMonedas);
+
+        let intentos = [];
+        for(let i = 0; i < 4; i++){
+            let adivinar = Number(prompt("¿Cuántas monedas crees que hay en total?"));
+            intentos.push(adivinar);
+        }
+
+        let hayGanadores = false;
+
+        for(let i = 0; i < intentos.length; i++){
+            if(intentos[i] == totalMonedas){
+                alert("Jugador " + (i + 1) + " ha ganado la partida. ");
+                hayGanadores = true;
+            }
+        }
+
+        if(!hayGanadores){
+            alert("Nadie ha ganado. Había " + totalMonedas + " monedas en total.");
+        }
+    </script>
+</body>
+</html>
