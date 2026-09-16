@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivina el número</title>
+</head>
+<body>
+    <script>
+        let numero = prompt("Introduce un número")
+
+        let oportunidad1 = prompt("Adivina el número");
+        if(oportunidad1 == numero){
+            alert("¡Lo has adivinado!");
+        } else {
+            let oportunidad2 = prompt("Prueba otra vez");
+            if(oportunidad2 == numero){
+                alert("¡Lo has adivinado!");
+            } else {
+                if(oportunidad2 == oportunidad1){
+                    alert("Ya has dicho ese número.")
+                }
+                let oportunidad3 = prompt("Prueba otra vez");
+                if(oportunidad3 == numero){
+                    alert("¡Lo has adivinado!");
+                } else {
+                    if(oportunidad3 == oportunidad2){
+                        alert("Ya has dicho ese número.")
+                    }
+                    let oportunidad4 = prompt("Prueba otra vez");
+                    if(oportunidad4 == numero){
+                        alert("¡Lo has adivinado!");
+                    } else {
+                        if(oportunidad4 == oportunidad3){
+                            alert("Ya has dicho ese número.")
+                        }
+                        let oportunidad5 = prompt("Última oportunidad");
+                        if(oportunidad5 == numero){
+                            alert("¡Lo has adivinado!");
+                        } else {
+                            if(oportunidad5 == oportunidad4){
+                                alert("Ya has dicho ese número.")
+                            }
+                            alert("Has perdido");
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
