@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificación actividad 5</title>
+</head>
+<body>
+    <script>
+        let nombre1 = prompt("Jugador 1, escribe tu nombre");
+        let monedas1 = Number(prompt("¿Cuántas monedas tienes? (0-3)"));
+        if(monedas1 < 0 || monedas1 > 3){
+            monedas1 = Number(prompt("Cantidad de monedas no válida. Introduce un número del 0 al 3."));
+        }
+
+        let nombre2 = prompt("Jugador 2, escribe tu nombre");
+        let monedas2 = Number(prompt("¿Cuántas monedas tienes? (0-3)"));
+        if(monedas2 < 0 || monedas2 > 3){
+            monedas2 = Number(prompt("Cantidad de monedas no válida. Introduce un número del 0 al 3."));
+        }
+
+        let nombre3 = prompt("Jugador 3, escribe tu nombre");
+        let monedas3 = Number(prompt("¿Cuántas monedas tienes? (0-3)"));
+        if(monedas3 < 0 || monedas3 > 3){
+            monedas3 = Number(prompt("Cantidad de monedas no válida. Introduce un número del 0 al 3."));
+        }
+
+        let nombre4 = prompt("Jugador 4, escribe tu nombre");
+        let monedas4 = Number(prompt("¿Cuántas monedas tienes? (0-3)"));
+        if(monedas4 < 0 || monedas4 > 3){
+            monedas4 = Number(prompt("Cantidad de monedas no válida. Introduce un número del 0 al 3."));
+        }
+
+        let totalMonedas = monedas1 + monedas2 + monedas3 + monedas4;
+
+        let intento1 = Number(prompt("¿Cuántas monedas crees que hay en total?"));
+        let intento2 = Number(prompt("¿Cuántas monedas crees que hay en total?"));
+        let intento3 = Number(prompt("¿Cuántas monedas crees que hay en total?"));
+        let intento4 = Number(prompt("¿Cuántas monedas crees que hay en total?"));
+
+        let hayGanadores = false;
+
+        if(intento1 == totalMonedas){
+            alert("Jugador 1 ha ganado la partida.");
+            hayGanadores = true;
+        }
+        if(intento2 == totalMonedas){
+            alert("Jugador 2 ha ganado la partida.");
+            hayGanadores = true;
+        }
+        if(intento3 == totalMonedas){
+            alert("Jugador 3 ha ganado la partida.");
+            hayGanadores = true;
+        }
+        if(intento4 == totalMonedas){
+            alert("Jugador 4 ha ganado la partida.");
+            hayGanadores = true;
+        }
+
+        if(!hayGanadores){
+            alert("Nadie ha ganado. El total de monedas era " + totalMonedas);
+        }
+    </script>
+</body>
+</html>

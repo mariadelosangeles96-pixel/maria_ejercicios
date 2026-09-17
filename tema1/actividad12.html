@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahorcado</title>
+</head>
+<body>
+    <script>
+        let palabra = alert("Introduzca una palabra de 4 letras (introduzca una letra cada vez)");
+        let letra1 = prompt("Primera letra: ");
+        if(letra1.length != 1 || letra1.includes(" ")){
+            alert("Debes introducir una sola letra.")
+        }
+        let letra2 = prompt("Segunda letra: ");
+        if(letra2.length != 1 || letra2.includes(" ")){
+            alert("Debes introducir una sola letra.")
+        }
+        let letra3 = prompt("Tercera letra: ");
+        if(letra3.length != 1 || letra3.includes(" ")){
+            alert("Debes introducir una sola letra.")
+        }
+        let letra4 = prompt("Cuarta letra: ");
+        if(letra4.length != 1 || letra4.includes(" ")){
+            alert("Debes introducir una sola letra.")
+        }
+
+        let descubrirl1 = "_";
+        let descubrirl2 = "_";
+        let descubrirl3 = "_";
+        let descubrirl4 = "_";
+
+        let letrasUsadas = "";
+        
+        for(let intento = 1; intento <= 7; intento++){
+            let intentoLetra = prompt("Intento " + intento + " de 7. Adivina una letra de la palabra: ");
+
+            if(!intentoLetra || intentoLetra.length !== 1 || intentoLetra === " "){
+                alert("Debes introducir solo una letra.");
+            }
+
+            if(letrasUsadas.includes(intentoLetra)){
+                alert("Esa letra ya ha sido probada.");
+            } else {
+                letrasUsadas = letrasUsadas + intentoLetra + " ";
+
+                let acierto = false;
+
+                if(intentoLetra === letra1){
+                    descubrirl1 = letra1;
+                    acierto = true;
+                }
+                if(intentoLetra === letra2){
+                    descubrirl2 = letra2;
+                    acierto = true;
+                }
+                if(intentoLetra === letra3){
+                    descubrirl3 = letra3;
+                    acierto = true;
+                }
+                if(intentoLetra === letra4){
+                    descubrirl4 = letra4;
+                    acierto = true;
+                }
+
+                if(descubrirl1 !== "_" && descubrirl2 !== "_" && descubrirl3 !== "_" && descubrirl4 !== "_") {
+                alert("¡Lo lograste! La palabra completa era " + descubrirl1 + descubrirl2 + descubrirl3 + descubrirl4);
+                break;
+            }
+
+                if(acierto){
+                    alert("¡Has acertado! " + descubrirl1 + " " + descubrirl2 + " " + descubrirl3 + " " + descubrirl4);
+                } else {
+                    alert("La letra '" + intentoLetra + "' no está en la palabra. " + descubrirl1 + " " + descubrirl2 + " " + descubrirl3 + " " + descubrirl4);
+                }
+            }
+        }
+
+        if(descubrirl1 === "_" || descubrirl2 === "_" || descubrirl3 === "_" || descubrirl4 === "_"){
+            alert("Has agotado los 7 intentos. La palabra era '" + letra1 + letra2 + letra3 + letra4 + "'.");
+        }
+    </script>
+</body>
+</html>

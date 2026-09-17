@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 10</title>
+</head>
+
+<body>
+    <script>
+        let n1 = Number(prompt("Introduce el 1º número:"));
+        let mayor = n1;
+        let posMayor = "primero";
+
+        let n2 = Number(prompt("Introduce el 2º número:"));
+        if (n2 === n1) {
+            alert("El segundo número ya había sido introducido.");
+        }
+        if (n2 > mayor) {
+            mayor = n2;
+            posMayor = "segundo";
+        }
+
+        let n3 = Number(prompt("Introduce el 3º número:"));
+        if (n3 === n1 || n3 === n2) {
+            alert("El tercer número ya había sido introducido.");
+        }
+        if (n3 > mayor) {
+            mayor = n3;
+            posMayor = "tercero";
+        }
+
+        let n4 = Number(prompt("Introduce el 4º número:"));
+        if (n4 === n1 || n4 === n2 || n4 === n3) {
+            alert("El cuarto número ya había sido introducido.");
+        }
+        if (n4 > mayor) {
+            mayor = n4;
+            posMayor = "cuarto";
+        }
+
+        let n5 = Number(prompt("Introduce el 5º número:"));
+        if (n5 === n1 || n5 === n2 || n5 === n3 || n5 === n4) {
+            alert("El quinto número ya había sido introducido.");
+        }
+        if (n5 > mayor) {
+            mayor = n5;
+            posMayor = "quinto";
+        }
+
+        console.log("El mayor es el " + posMayor + " (" + mayor + ").");
+
+        if (n2 === n1) console.log("El segundo y el primero son iguales.");
+
+        if (n3 === n1) console.log("El tercero y el primero son iguales.");
+        if (n3 === n2) console.log("El tercero y el segundo son iguales.");
+
+        if (n4 === n1) console.log("El cuarto y el primero son iguales.");
+        if (n4 === n2) console.log("El cuarto y el segundo son iguales.");
+        if (n4 === n3) console.log("El cuarto y el tercero son iguales.");
+
+        if (n5 === n1) console.log("El quinto y el primero son iguales.");
+        if (n5 === n2) console.log("El quinto y el segundo son iguales.");
+        if (n5 === n3) console.log("El quinto y el tercero son iguales.");
+        if (n5 === n4) console.log("El quinto y el cuarto son iguales.");
+    </script>
+</body>
+
+</html>
