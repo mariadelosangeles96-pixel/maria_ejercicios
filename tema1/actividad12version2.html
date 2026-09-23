@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahorcado</title>
+</head>
+
+<body>
+    <script>
+        let palabra = alert("Introduzca una palabra de 4 letras (introduzca una letra cada vez)");
+        let letra1 = prompt("Primera letra: ");
+        let letra2 = prompt("Segunda letra: ");
+        let letra3 = prompt("Tercera letra: ");
+        let letra4 = prompt("Cuarta letra: ");
+
+        let descubrirl1 = "_";
+        let descubrirl2 = "_";
+        let descubrirl3 = "_";
+        let descubrirl4 = "_";
+
+        let intentoLetra1 = "";
+        let intentoLetra2 = "";
+        let intentoLetra3 = "";
+        let intentoLetra4 = "";
+        let intentoLetra5 = "";
+        let intentoLetra6 = "";
+        let intentoLetra7 = "";
+
+        let acierto = false;
+        let juegoGanado = false;
+
+        intentoLetra1 = prompt("Intento 1/7. Adivina una letra de la palabra: ");
+        if (intentoLetra1 === letra1) {
+            descubrirl1 = letra1;
+            acierto = true;
+        }
+        if (intentoLetra1 === letra2) {
+            descubrirl2 = letra2;
+            acierto = true;
+        }
+        if (intentoLetra1 === letra3) {
+            descubrirl3 = letra3;
+            acierto = true;
+        }
+        if (intentoLetra1 === letra4) {
+            descubrirl4 = letra4;
+            acierto = true;
+        }
+        if (acierto) {
+            alert("¡Has acertado! " + descubrirl1 + " " + descubrirl2 + " " + descubrirl3 + " " + descubrirl4);
+        } else {
+            alert("La letra no está en la palabra. " + descubrirl1 + " " + descubrirl2 + " " + descubrirl3 + " " + descubrirl4);
+        }
+        acierto = false;
+
+        if (descubrirl1 !== "_" && descubrirl2 !== "_" && descubrirl3 !== "_" && descubrirl4 !== "_") {
+            juegoGanado = true;
+        }
+
+        if (!juegoGanado) {
+            intentoLetra2 = prompt("Intento 2/7. Adivina una letra de la palabra: ");
+            if (intentoLetra2 === intentoLetra1) {
+                alert("Esa letra ya ha sido probada.")
+            } else {
+                if (intentoLetra2 === letra1) {
+                    descubrirl1 = letra1;
+                    acierto = true;
+                }
+                if (intentoLetra2 === letra2) {
+                    descubrirl2 = letra2;
+                    acierto = true;
+                }
+                if (intentoLetra2 === letra3) {
+                    descubrirl3 = letra3;
+                    acierto = true;
+                }
+                if (intentoLetra2 === letra4) {
+                    descubrirl4 = letra4;
+                    acierto = true;
+                }
+                if (acierto) {
+                    alert("¡Has acertado! " + descubrirl1 + " " + descubrirl2 + " " + descubrirl3 + " " + descubrirl4);
+                } else {
+                    alert("La letra no está en la palabra. " + descubrirl1 + " " + descubrirl2 + " " + descubrirl3 + " " + descubrirl4);
+                }
+            }
+            acierto = false;
+
+            if (descubrirl1 !== "_" && descubrirl2 !== "_" && descubrirl3 !== "_" && descubrirl4 !== "_") {
+                juegoGanado = true;
+            }
+        }
+
+        if (!juegoGanado) {
+            intentoLetra3 = prompt("Intento 3/7. Adivina una letra de la palabra: ");
+            if (intentoLetra3 === intentoLetra2 || intentoLetra3 === intentoLetra1) {
+                alert("Esa letra ya ha sido probada.")
+            } else {
+                if (intentoLetra3 === letra1) {
+                    descubrirl1 = letra1;
+                    acierto = true;
+                }
+                if (intentoLetra3 === letra2) {
+                    descubrirl2 = letra2;
+                    acierto = true;
+                }
+                if (intentoLetra3 === letra3) {
+                    descubrirl3 = letra3;
+                    acierto = true;
+                }
+                if (intentoLetra3 === letra4) {
+                    descubrirl4 = letra4;
+                    acierto = true;
+                }
+                if (acierto) {
+                    alert("¡Has acertado! " + descubrirl1 + " " + descubrirl2 + " " + descubrirl3 + " " + descubrirl4);
+                } else {
+                    alert("La letra no está en la palabra. " + descubrirl1 + " " + descubrirl2 + " " + descubrirl3 + " " + descubrirl4);
+                }
+            }
+            acierto = false;
+
+            if (descubrirl1 !== "_" && descubrirl2 !== "_" && descubrirl3 !== "_" && descubrirl4 !== "_") {
+                juegoGanado = true;
+            }
+        }
+
+        if (!juegoGanado) {
+            intentoLetra4 = prompt("Intento 4/7. Adivina una letra de la palabra: ");
+            if (intentoLetra4 === intentoLetra3 || intentoLetra4 === intentoLetra2 || intentoLetra4 === intentoLetra1) {
+                alert("Esa letra ya ha sido probada.")
+            } else {
+                if (intentoLetra4 === letra1) {
+                    descubrirl1 = letra1;
+                    acierto = true;
+                }
+                if (intentoLetra4 === letra2) {
+                    descubrirl2 = letra2;
+                    acierto = true;
+                }
+                if (intentoLetra4 === letra3) {
+                    descubrirl3 = letra3;
+                    acierto = true;
+                }
+                if (intentoLetra4 === letra4) {
+                    descubrirl4 = letra4;
+                    acierto = true;
+                }
+                if (acierto) {
+                    alert("¡Has acertado! " + descubrirl1 + " " + descubrirl2 + " " + descubrirl3 + " " + descubrirl4);
+                } else {
+                    alert("La letra no está en la palabra. " + descubrirl1 + " " + descubrirl2 + " " + descubrirl3 + " " + descubrirl4);
+                }
+            }
+            acierto = false;
+
+            if (descubrirl1 !== "_" && descubrirl2 !== "_" && descubrirl3 !== "_" && descubrirl4 !== "_") {
+                juegoGanado = true;
+            }
+        }
+
+        if (!juegoGanado) {
+            intentoLetra5 = prompt("Intento 5/7. Adivina una letra de la palabra: ");
+            if (intentoLetra5 === intentoLetra4 || intentoLetra5 === intentoLetra3 || intentoLetra5 === intentoLetra2 || intentoLetra5 === intentoLetra1) {
+                alert("Esa letra ya ha sido probada.")
+            } else {
+                if (intentoLetra5 === letra1) {
+                    descubrirl1 = letra1;
+                    acierto = true;
+                }
+                if (intentoLetra5 === letra2) {
+                    descubrirl2 = letra2;
+                    acierto = true;
+                }
+                if (intentoLetra5 === letra3) {
+                    descubrirl3 = letra3;
+                    acierto = true;
+                }
+                if (intentoLetra5 === letra4) {
+                    descubrirl4 = letra4;
+                    acierto = true;
+                }
+                if (acierto) {
+                    alert("¡Has acertado! " + descubrirl1 + " " + descubrirl2 + " " + descubrirl3 + " " + descubrirl4);
+                } else {
+                    alert("La letra no está en la palabra. " + descubrirl1 + " " + descubrirl2 + " " + descubrirl3 + " " + descubrirl4);
+                }
+            }
+            acierto = false;
+
+            if (descubrirl1 !== "_" && descubrirl2 !== "_" && descubrirl3 !== "_" && descubrirl4 !== "_") {
+                juegoGanado = true;
+            }
+        }
+
+        if (!juegoGanado) {
+            intentoLetra6 = prompt("Intento 6/7. Adivina una letra de la palabra: ");
+            if (intentoLetra6 === intentoLetra5 || intentoLetra6 === intentoLetra4 || intentoLetra6 === intentoLetra3 || intentoLetra6 === intentoLetra2 || intentoLetra6 === intentoLetra1) {
+                alert("Esa letra ya ha sido probada.")
+            } else {
+                if (intentoLetra6 === letra1) {
+                    descubrirl1 = letra1;
+                    acierto = true;
+                }
+                if (intentoLetra6 === letra2) {
+                    descubrirl2 = letra2;
+                    acierto = true;
+                }
+                if (intentoLetra6 === letra3) {
+                    descubrirl3 = letra3;
+                    acierto = true;
+                }
+                if (intentoLetra6 === letra4) {
+                    descubrirl4 = letra4;
+                    acierto = true;
+                }
+                if (acierto) {
+                    alert("¡Has acertado! " + descubrirl1 + " " + descubrirl2 + " " + descubrirl3 + " " + descubrirl4);
+                } else {
+                    alert("La letra no está en la palabra. " + descubrirl1 + " " + descubrirl2 + " " + descubrirl3 + " " + descubrirl4);
+                }
+            }
+            acierto = false;
+
+            if (descubrirl1 !== "_" && descubrirl2 !== "_" && descubrirl3 !== "_" && descubrirl4 !== "_") {
+                juegoGanado = true;
+            }
+        }
+
+        if (!juegoGanado) {
+            intentoLetra7 = prompt("Intento 7/7. Adivina una letra de la palabra: ");
+            if (intentoLetra7 === intentoLetra6 || intentoLetra7 === intentoLetra5 || intentoLetra7 === intentoLetra4 || intentoLetra7 === intentoLetra3 || intentoLetra7 === intentoLetra2 || intentoLetra7 === intentoLetra1) {
+                alert("Esa letra ya ha sido probada.")
+            } else {
+                if (intentoLetra7 === letra1) {
+                    descubrirl1 = letra1;
+                    acierto = true;
+                }
+                if (intentoLetra7 === letra2) {
+                    descubrirl2 = letra2;
+                    acierto = true;
+                }
+                if (intentoLetra7 === letra3) {
+                    descubrirl3 = letra3;
+                    acierto = true;
+                }
+                if (intentoLetra7 === letra4) {
+                    descubrirl4 = letra4;
+                    acierto = true;
+                }
+                if (acierto) {
+                    alert("¡Has acertado! " + descubrirl1 + " " + descubrirl2 + " " + descubrirl3 + " " + descubrirl4);
+                } else {
+                    alert("La letra no está en la palabra. " + descubrirl1 + " " + descubrirl2 + " " + descubrirl3 + " " + descubrirl4);
+                }
+            }
+            acierto = false;
+
+            if (descubrirl1 !== "_" && descubrirl2 !== "_" && descubrirl3 !== "_" && descubrirl4 !== "_") {
+                juegoGanado = true;
+            }
+        }
+
+        if (juegoGanado) {
+            alert("¡Lo lograste! La palabra completa era " + descubrirl1 + descubrirl2 + descubrirl3 + descubrirl4);
+        } else {
+            alert("Has agotado los 7 intentos. La palabra era '" + letra1 + letra2 + letra3 + letra4 + "'.");
+        }
+    </script>
+</body>
+
+</html>

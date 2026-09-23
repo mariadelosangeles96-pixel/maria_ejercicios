@@ -12,12 +12,13 @@
         let n1 = Number(prompt("Introduce el 1º número:"));
         let mayor = n1;
         let posMayor = "primero";
+        let sonIguales = "";
 
         let n2 = Number(prompt("Introduce el 2º número:"));
         if (n2 === n1) {
             alert("El segundo número ya había sido introducido.");
-        }
-        if (n2 > mayor) {
+            sonIguales += "El segundo y el primero son iguales.\n";
+        } else if (n2 > mayor) {
             mayor = n2;
             posMayor = "segundo";
         }
@@ -25,8 +26,13 @@
         let n3 = Number(prompt("Introduce el 3º número:"));
         if (n3 === n1 || n3 === n2) {
             alert("El tercer número ya había sido introducido.");
-        }
-        if (n3 > mayor) {
+            if(n3 === n1) {
+                sonIguales += "El tercero y el primero son iguales.\n";
+            }
+            if(n3 === n2){
+                sonIguales += "El tercero y el segundo son iguales.\n";
+            }
+        } else if (n3 > mayor) {
             mayor = n3;
             posMayor = "tercero";
         }
@@ -34,6 +40,15 @@
         let n4 = Number(prompt("Introduce el 4º número:"));
         if (n4 === n1 || n4 === n2 || n4 === n3) {
             alert("El cuarto número ya había sido introducido.");
+            if (n4 === n1) {
+                sonIguales += "El cuarto y el primero son iguales.\n";
+            }
+            if (n4 === n2) {
+                sonIguales += "El cuarto y el segundo son iguales.\n";
+            }
+            if (n4 === n3) {
+                sonIguales += "El cuarto y el tercero son iguales.\n";
+            }
         }
         if (n4 > mayor) {
             mayor = n4;
@@ -43,6 +58,18 @@
         let n5 = Number(prompt("Introduce el 5º número:"));
         if (n5 === n1 || n5 === n2 || n5 === n3 || n5 === n4) {
             alert("El quinto número ya había sido introducido.");
+            if (n5 === n1) {
+                sonIguales += "El quinto y el primero son iguales.\n";
+            }
+            if (n5 === n2) {
+                sonIguales += "El quinto y el segundo son iguales.\n";
+            }
+            if (n5 === n3) {
+                sonIguales += "El quinto y el tercero son iguales.\n";
+            }
+            if (n5 === n4) {
+                sonIguales += "El quinto y el cuarto son iguales.\n";
+            }
         }
         if (n5 > mayor) {
             mayor = n5;
@@ -50,20 +77,6 @@
         }
 
         alert("El mayor es el " + posMayor + " (" + mayor + ").");
-
-        if (n2 === n1) alert("El segundo y el primero son iguales.");
-
-        if (n3 === n1) alert("El tercero y el primero son iguales.");
-        if (n3 === n2) aler("El tercero y el segundo son iguales.");
-
-        if (n4 === n1) alert("El cuarto y el primero son iguales.");
-        if (n4 === n2) alert("El cuarto y el segundo son iguales.");
-        if (n4 === n3) alert("El cuarto y el tercero son iguales.");
-
-        if (n5 === n1) alert("El quinto y el primero son iguales.");
-        if (n5 === n2) alert("El quinto y el segundo son iguales.");
-        if (n5 === n3) alert("El quinto y el tercero son iguales.");
-        if (n5 === n4) alert("El quinto y el cuarto son iguales.");
     </script>
 </body>
 

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordinograma frutería</title>
+</head>
+
+<body>
+    <script>
+        const frutas = ['manzana', 'banana', 'cereza', 'naranja', 'pera', 'kiwi', 'mango', 'piña'];
+        const precio = [10.2, 4.3, 5.6, 7.8, 3.4, 8.9, 6.7, 9.1];
+
+        alert("Frutería")
+        for (let i = 0; i < frutas.length; i++) {
+            alert(frutas[i] + ": " + precio[i] + " €/kg");
+        }
+
+        let total = 0;
+        let continuar = "si";
+
+        while (continuar === "si") {
+            let eleccion = prompt("¿Qué fruta quieres?");
+            let existe = false;
+
+            for (let i = 0; i < frutas.length; i++) {
+                if (eleccion === frutas[i]) {
+                    existe = true;
+                    let kilos = Number(prompt("¿Cuántos kilos de " + eleccion + " quieres?"));
+                    total = total + (precio[i] * kilos);
+                }
+            }
+
+            if (!existe) {
+                alert("No nos queda de esa fruta.");
+            }
+
+            continuar = prompt("¿Quieres comprar otra fruta? (si/no)");
+        }
+
+        alert("El total a pagar es: " + total + "€");
+    </script>
+</body>
+
+</html>
