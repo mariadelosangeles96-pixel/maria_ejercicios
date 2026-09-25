@@ -1,33 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notas alumnado</title>
 </head>
+
 <body>
     <script>
         let evaluaciones = [];
         for (let j = 0; j < 3; j++) {
-            let examenes = [];
+            let examenes = [0, 0, 0, 0];
             for (let i = 0; i < 3; i++) {
-                let nota = Number(prompt("Nota examen " + (i + 1) + " evaluación " + (j + 1) +": "));
-                examenes[i] = nota;
+                examenes[i] = Number(prompt("Nota examen " + (i + 1) + " evaluación " + (j + 1) + ": "));
             }
+
             let media = ((examenes[0] + examenes[1] + examenes[2]) / 3);
             alert("La media de la evaluación " + (j + 1) + " es: " + media);
-            if((j == 0 && media < 7) || (j == 1 && media < 6) || (j == 2 && media < 5)){
-                let recuperacion = Number(prompt("Nota recuperación evaluación " + (j + 1) + ": "));
-                if(recuperacion < 5){
+
+            let todosExamenesAprobados = false;
+            if (examenes[0] >= 5 && examenes[1] >= 5 && examenes[2] >= 5) {
+                todosExamenesAprobados = true;
+            }
+
+            let mediaAprobada = false;
+            if ((j == 0 && media >= 7) || (j == 1 && media >= 6) || (j == 2 && media >= 5)) {
+                mediaAprobada = true;
+            }
+
+            if (todosExamenesAprobados && mediaAprobada) {
+                alert("El alumno/a ha aprobado la evaluación " + (j + 1));
+            } else {
+                examenes[3] = Number(prompt("Nota recuperación evaluación " + (j + 1) + ": "));
+                if (examenes[3] < 5) {
                     alert("El alumno/a ha suspendido la evaluación " + (j + 1));
                 } else {
                     alert("El alumno/a ha aprobado la evaluación " + (j + 1) + " en la recuperación");
                 }
-            } else {
-                alert("El alumno/a ha aprobado la evaluación " + (j + 1));
             }
-        }
 
+            evaluaciones[j] = examenes;
+        }
     </script>
 </body>
+
 </html>
