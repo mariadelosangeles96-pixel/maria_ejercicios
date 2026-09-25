@@ -10,8 +10,12 @@
 <body>
     <script>
         let evaluaciones = [];
+        let evaluacionesAprobadas = [0, 0, 0];
+        
         for (let j = 0; j < 3; j++) {
             let examenes = [0, 0, 0, 0];
+            let evAprobada = false;
+            
             for (let i = 0; i < 3; i++) {
                 examenes[i] = Number(prompt("Nota examen " + (i + 1) + " evaluación " + (j + 1) + ": "));
             }
@@ -30,17 +34,31 @@
             }
 
             if (todosExamenesAprobados && mediaAprobada) {
+                evAprobada = true;
                 alert("El alumno/a ha aprobado la evaluación " + (j + 1));
             } else {
                 examenes[3] = Number(prompt("Nota recuperación evaluación " + (j + 1) + ": "));
                 if (examenes[3] < 5) {
                     alert("El alumno/a ha suspendido la evaluación " + (j + 1));
                 } else {
+                    evAprobada = true;
                     alert("El alumno/a ha aprobado la evaluación " + (j + 1) + " en la recuperación");
                 }
             }
 
             evaluaciones[j] = examenes;
+            
+            if (evAprobada) {
+                evaluacionesAprobadas[j] = 1;
+            } else {
+                evaluacionesAprobadas[j] = 0;
+            }
+        }
+        
+        if (evaluacionesAprobadas[0] === 1 && evaluacionesAprobadas[1] === 1 && evaluacionesAprobadas[2] === 1) {
+            alert("El alumno ha aprobado el curso.");
+        } else {
+            alert("El alumno ha suspendido el curso.");
         }
     </script>
 </body>

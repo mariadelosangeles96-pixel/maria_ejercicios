@@ -7,7 +7,34 @@
 </head>
 <body>
     <script>
-        
+        let iva = 0.21;
+        let precioLitroDiesel = 2;
+        let precioLitroGasolina = 1.98;
+        let precioLitroDiesel10 = 2.06;
+
+        let agricola = 0.35;
+        let cliente = 0.05;
+
+        let tipo = prompt("¿Qué tipo de combustible quiere? (diesel/gasolina/diesel10)");
+        let litros = Number(prompt("¿Cuántos litros quiere?"));
+
+        let esAgricola = prompt("¿Combustible agrícola? (s/n)");
+        let esCliente = prompt("¿Tiene tarjeta cliente? (s/n)");
+
+        let precioInicial;
+        let precioConIva;
+        let precioDescuento;
+        let precioFinal;
+
+        if (tipo === "diesel"){
+            precioInicial = precioLitroDiesel * litros;
+            precioConIva = precioInicial + (precioInicial*iva);
+            if(esAgricola==="s"){
+                precioDescuentos = precioConIva - agricola;
+            }
+
+
+        }
     </script>
 </body>
 </html>
