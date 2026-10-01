@@ -21,20 +21,34 @@
         let esAgricola = prompt("¿Combustible agrícola? (s/n)");
         let esCliente = prompt("¿Tiene tarjeta cliente? (s/n)");
 
-        let precioInicial;
-        let precioConIva;
-        let precioDescuento;
-        let precioFinal;
+        let precioBase = 0;
 
         if (tipo === "diesel"){
-            precioInicial = precioLitroDiesel * litros;
-            precioConIva = precioInicial + (precioInicial*iva);
-            if(esAgricola==="s"){
-                precioDescuentos = precioConIva - agricola;
-            }
-
-
+            precioBase = precioLitroDiesel;
+        } else if (tipo === "gasolina"){
+            precioBase = precioLitroGasolina;
+        } else if (tipo === "diesel10"){
+            precioBase = precioLitroDiesel10;
+        } else {
+            alert("El tipo de combustible introducido no es válido.")
         }
+
+        let descuento = 0;
+
+        if(esAgricola){
+            descuento += agricola;
+        }
+        if(esCliente){
+            descuento += cliente;
+        }
+
+        let precioFinalLitro = precioBase - descuento;
+
+        let subtotal = precioFinalLitro * litros;
+
+        let totalCobrar = subtotal + (subtotal * iva);
+
+        alert("El total a cobrar con IVA incluido es de " + totalCobrar.toFixed(2) + "€.");
     </script>
 </body>
 </html>
