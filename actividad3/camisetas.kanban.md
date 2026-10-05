@@ -6,15 +6,6 @@
 
 ## To Do
 
-#### Detalle
-<!-- id: task-1790768336023-17 -->
-Muestra la foto por delante y por detrás. Además, se puede seleccionar la talla.
-- [ ] Dibujar el detalle con foto, etc.
-- [ ] Emisión evento: añadir_al_carrito
-- [ ] Captura de evento mostrarCamiseta
-<!-- workload: hard -->
-<!-- assignee: Mars -->
-
 #### Carrito
 <!-- id: task-1790768720334-24 -->
 Tiene una lista de camisetas que vamos a comprar.
@@ -33,8 +24,17 @@ Tiene una lista de camisetas que vamos a comprar.
 Es la estructura general, con cabecera, cuerpo y pie.
 - [ ] Cabecera
 - [ ] Pie
-- [ ] Estructura contenedora del esqueleto
+- [x] Estructura contenedora del esqueleto
 <!-- priority: high -->
+<!-- assignee: Mars -->
+
+#### Detalle
+<!-- id: task-1790768336023-17 -->
+Muestra la foto por delante y por detrás. Además, se puede seleccionar la talla.
+- [x] Dibujar el detalle con foto, etc.
+- [ ] Emisión evento: añadir_al_carrito
+- [x] Captura de evento mostrarCamiseta
+<!-- workload: hard -->
 <!-- assignee: Mars -->
 
 ## Done

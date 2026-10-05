@@ -1,20 +1,17 @@
 <script setup>
 import { ref } from 'vue'
-import camiseta1_front from '../assets/camiseta1_front.jpg'
-import camiseta1_back from '../assets/camiseta1_back.jpg'
 
-defineProps({
-    visible: {
-        type: Boolean,
-        default: false
+const props = defineProps({
+    camiseta: {
+        type: Object,
+        default : null
     }
-})
-defineEmits(['cerrar'])
-
-const camisetaSeleccionada = ref(null);
+});
+const emits = defineEmits(['cerrar']);
 
 const tallaSeleccionada = ref("S");
 const precioFinalCamiseta = ref(0);
+
 function actualizarPrecioFinalCamiseta() {
     let precioBase = camisetaSeleccionada.value.precio;
     if (tallaSeleccionada.value === "L") {
@@ -30,16 +27,16 @@ function actualizarPrecioFinalCamiseta() {
 </script>
 
 <template>
-    <div v-if="camisetaSeleccionada" class="modal" @click.self="camisetaSeleccionada = null">
+    <div v-if="camiseta" class="modal" @click.self="$emit('cerrar')">
         <div class="contenido-modal">
-            <h2>{{ camisetaSeleccionada.nombre }}</h2>
+            <h2 class="titulo-modal">{{ camiseta.nombre }}</h2>
 
             <div class="imagenes">
-                <img :src="camisetaSeleccionada.imgFrente" alt="Por delante" />
-                <img :src="camisetaSeleccionada.imgDetras" alt="Por detrás" />
+                <img :src="camiseta.imgFrente" alt="Por delante" />
+                <img :src="camiseta.imgDetras" alt="Por detrás" />
             </div>
 
-            <label for="select-talla">Elige tu talla:</label>
+            <label for="select-talla">Elige tu talla: </label>
             <select v-model="tallaSeleccionada" @change="actualizarPrecioFinalCamiseta" name="seleccionar-talla"
                 id="select-talla">
                 <option value="S">S</option>
@@ -57,40 +54,24 @@ function actualizarPrecioFinalCamiseta() {
 </template>
 
 <style scope>
-body{
-    background-color:rgb(175, 186, 240);
-}
-.grid-camisetas {
-    clear: both;
-    padding: 2em;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+.titulo-modal{
+    color: #694F5D;
 }
 
-#camiseta-catalogo{
-    max-width: 45%;
-    max-height: 300px;
-    width: auto;
-    height: auto;
-    border-radius: 0.5em;
-}
-
-article {
-    width: 35%;
-    border-radius: 1em;
-    background-color: rgb(210, 238, 252);
-    margin: 1em;
-    padding: 0.5em;
-    border: 1px solid rgb(61, 61, 68);
+#select-talla{
     cursor: pointer;
 }
 
 .botones {
     margin: 1em;
-    background-color: rgb(140, 127, 146);
-    color: aliceblue;
+    background-color: #68A691;
+    color: white;
     border-radius: 0.3em;
+    cursor: pointer;
+}
+
+.botones:hover {
+    background-color: #EFC7C2;
 }
 
 .modal {
@@ -109,16 +90,16 @@ article {
 }
 
 .contenido-modal{
-    background-color: white;
+    background-color: #FFE5D4;
     padding: 2em;
     border-radius: 1em;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-
     width: 90%;
     max-width: 600px;
     max-height: 80vh;
     overflow-y: auto;
+    color: #694F5D;
 }
 
 .imagenes{
@@ -135,5 +116,6 @@ article {
     height: auto;
     object-fit: contain;
     border-radius: 0.5em;
+    border: 1px solid #694F5D;
 }
 </style>

@@ -21,17 +21,17 @@ defineEmits(['abrir-modelos'])
 }
 
 .titulo-pagina {
-    color: rgb(74, 82, 105);
+    color: #694F5D;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 .titulo2 {
-    color: rgb(74, 82, 105);
+    color: #694F5D;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 nav a {
-    color: #172033;
+    color: #694F5D;
     padding: 5px;
 }
 </style>
