@@ -1,19 +1,28 @@
 <script setup>
-defineEmits(['abrir-modelos'])
+defineProps({
+    cantidadCarrito: {
+        type: Number,
+        default: 0
+    }
+});
+
+defineEmits(['abrir-modelos', 'abrir-carrito']);
 </script>
 
 <template>
     <header class="cabecera">
-        <h1 class="titulo-pagina">Camisetas Manu</h1>
-        <h2 class="titulo2">Diseños y serigrafiado propios</h2>
-        <nav>
-            <a href="#modelos">Modelos</a>
-            <a href="#contacto">Contacto</a>
-        </nav>
+        <div class="top-bar">
+            <h1 class="titulo-pagina">Camisetas Manu</h1>
+            <h2 class="titulo2">Diseños y serigrafiado propios</h2>
+        </div>
+        <button @click="$emit('abrir-carrito')" class="btn-carrito">
+            Carrito ({{ cantidadCarrito }})
+        </button>
+
     </header>
 </template>
 
-<style scoped>
+<style scope>
 .cabecera {
     max-width: 1100px;
     margin: auto;
@@ -30,8 +39,18 @@ defineEmits(['abrir-modelos'])
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-nav a {
-    color: #694F5D;
-    padding: 5px;
+.btn-carrito {
+    background-color: #68A691;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 0.5em;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.btn-carrito:hover {
+    background-color: #558876;
 }
 </style>

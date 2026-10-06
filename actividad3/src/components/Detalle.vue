@@ -4,16 +4,15 @@ import { ref } from 'vue'
 const props = defineProps({
     camiseta: {
         type: Object,
-        default : null
+        default: null
     }
 });
-const emits = defineEmits(['cerrar']);
+const emits = defineEmits(['cerrar', 'anadir-al-carrito']);
 
 const tallaSeleccionada = ref("S");
-const precioFinalCamiseta = ref(0);
 
 function actualizarPrecioFinalCamiseta() {
-    let precioBase = camisetaSeleccionada.value.precio;
+    let precioBase = props.camiseta.precio;
     if (tallaSeleccionada.value === "L") {
         precioBase += 2;
     }
@@ -21,8 +20,26 @@ function actualizarPrecioFinalCamiseta() {
         precioBase += 3;
     }
 
-    precioFinalCamiseta.value = precioBase;
-}
+    return precioBase;
+};
+
+function anadirAlCarrito() {
+    const stockDisponible = props.camiseta.stock[tallaSeleccionada.value];
+    if (stockDisponible <= 0) {
+        alert("No nos queda stock disponible en esta talla.");
+        return;
+    };
+
+    emits('anadir-al-carrito', {
+        id: props.camiseta.id,
+        nombre: props.camiseta.nombre,
+        talla: tallaSeleccionada.value,
+        precioUnidad: actualizarPrecioFinalCamiseta(),
+        imgFrente: props.camiseta.imgFrente
+    });
+
+    emit('cerrar');
+};
 
 </script>
 
@@ -37,15 +54,14 @@ function actualizarPrecioFinalCamiseta() {
             </div>
 
             <label for="select-talla">Elige tu talla: </label>
-            <select v-model="tallaSeleccionada" @change="actualizarPrecioFinalCamiseta" name="seleccionar-talla"
-                id="select-talla">
-                <option value="S">S</option>
-                <option value="M">M</option>
-                <option value="L">L (+2€)</option>
-                <option value="XL">XL (+3€)</option>
+            <select v-model="tallaSeleccionada" id="select-talla">
+                <option value="S">S (Stock: {{ camiseta.stock.S }})</option>
+                <option value="M">M (Stock: {{ camiseta.stock.M }})</option>
+                <option value="L">L (+2€) (Stock: {{ camiseta.stock.L }})</option>
+                <option value="XL">XL (+3€) (Stock: {{ camiseta.stock.XL }})</option>
             </select>
 
-            <p>Precio final: {{ precioFinalCamiseta }}€</p>
+            <p>Precio final: {{ actualizarPrecioFinalCamiseta() }}€</p>
 
             <button @click="anadirAlCarrito" class="botones">Comprar</button>
             <button @click="$emit('cerrar')" class="botones">Cerrar</button>
@@ -54,18 +70,21 @@ function actualizarPrecioFinalCamiseta() {
 </template>
 
 <style scope>
-.titulo-modal{
+.titulo-modal {
     color: #694F5D;
 }
 
-#select-talla{
+#select-talla {
     cursor: pointer;
+    padding: 4px;
 }
 
 .botones {
     margin: 1em;
+    padding: 8px 16px;
     background-color: #68A691;
     color: white;
+    border: none;
     border-radius: 0.3em;
     cursor: pointer;
 }
@@ -89,7 +108,7 @@ function actualizarPrecioFinalCamiseta() {
     z-index: 1000;
 }
 
-.contenido-modal{
+.contenido-modal {
     background-color: #FFE5D4;
     padding: 2em;
     border-radius: 1em;
@@ -102,7 +121,7 @@ function actualizarPrecioFinalCamiseta() {
     color: #694F5D;
 }
 
-.imagenes{
+.imagenes {
     display: flex;
     justify-content: center;
     gap: 1em;

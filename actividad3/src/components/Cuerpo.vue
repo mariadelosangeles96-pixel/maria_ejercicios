@@ -4,18 +4,29 @@ import Detalle from './Detalle.vue'
 import camiseta1_front from '../assets/camiseta1_front.jpg'
 import camiseta1_back from '../assets/camiseta1_back.jpg'
 
-const precioFinalTotal = ref(0);
+const emit = defineEmits(['anadir-al-carrito']);
 
-const camisetas = [
-    { id: 1, nombre: "Totoro", precio: 15, imgFrente: camiseta1_front, imgDetras: camiseta1_back },
-    { id: 2, nombre: "Mononoke", precio: 25, imgFrente: camiseta1_front, imgDetras: camiseta1_back },
-    { id: 3, nombre: "Chihiro", precio: 25, imgFrente: camiseta1_front, imgDetras: camiseta1_back },
-    { id: 4, nombre: "Kiki", precio: 20, imgFrente: camiseta1_front, imgDetras: camiseta1_back },
-    { id: 5, nombre: "Howl", precio: 20, imgFrente: camiseta1_front, imgDetras: camiseta1_back },
-    { id: 6, nombre: "Arrietty", precio: 15, imgFrente: camiseta1_front, imgDetras: camiseta1_back },
-];
+const camisetas = ref([
+    { id: 1, nombre: "Totoro", precio: 15, imgFrente: camiseta1_front, imgDetras: camiseta1_back, stock: { S: 5, M: 4, L: 2, XL: 1} },
+    { id: 2, nombre: "Mononoke", precio: 25, imgFrente: camiseta1_front, imgDetras: camiseta1_back, stock: { S: 3, M: 5, L: 0, XL: 2 } },
+    { id: 3, nombre: "Chihiro", precio: 25, imgFrente: camiseta1_front, imgDetras: camiseta1_back, stock: { S: 2, M: 2, L: 3, XL: 1 } },
+    { id: 4, nombre: "Kiki", precio: 20, imgFrente: camiseta1_front, imgDetras: camiseta1_back, stock: { S: 4, M: 1, L: 5, XL: 0 } },
+    { id: 5, nombre: "Howl", precio: 20, imgFrente: camiseta1_front, imgDetras: camiseta1_back, stock: { S: 1, M: 3, L: 2, XL: 4 } },
+    { id: 6, nombre: "Arrietty", precio: 15, imgFrente: camiseta1_front, imgDetras: camiseta1_back, stock: { S: 5, M: 4, L: 1, XL: 1 } },
+]);
 
 const camisetaSeleccionada = ref(null);
+
+function gestionarAnadirAlCarrito(producto){
+    for (let i = 0; i < camisetas.value.length; i++) {
+        if(camisetas.value[i].id === producto.id){
+            if(camisetas.value[i].stock[producto.talla] > 0){
+                camisetas.value[i].stock[producto.talla]--;
+            };
+        };
+    };
+    emit('anadir-al-carrito', producto);
+};
 </script>
 
 <template>
@@ -28,9 +39,8 @@ const camisetaSeleccionada = ref(null);
         </article>
     </div>
 
-    <Detalle :camiseta = "camisetaSeleccionada" @cerrar="camisetaSeleccionada = null" />
+    <Detalle :camiseta = "camisetaSeleccionada" @cerrar="camisetaSeleccionada = null" @anadir-al-carrito="gestionarAnadirAlCarrito" />
 
-    <p> Precio final total: {{ precioFinalTotal }} </p>
 </template>
 
 <style scope>
