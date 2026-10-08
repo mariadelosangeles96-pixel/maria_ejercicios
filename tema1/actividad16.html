@@ -22,8 +22,9 @@
         const peticiones = 3;
         let frutasPedidas = "";
         let cantidad = 0;
+        let total = 0;
 
-        for (let i = 0; i <= peticiones; i++) {
+        for (let i = 0; i < peticiones; i++) {
             let fruta = prompt("¿Qué fruta quieres?");
             if(!inventario[fruta]){
                 alert("No tenemos de esa fruta.");
@@ -35,14 +36,14 @@
                     alert("No nos queda de esa fruta.")
                 } else{
                     let coste = cantidad * inventario[fruta].precio;
+                    total += coste;
                     inventario[fruta].stock -= cantidad;
-                    frutasPedidas.push(fruta);
-                    alert(cantidad + " " + fruta + " añadido.")
+                    frutasPedidas += fruta;
+                    alert(cantidad + " " + fruta + " añadido.");
                 }
             }
-            
-
         }
+        alert("Importe total: " + total + "€.");
     </script>
 </body>
 
