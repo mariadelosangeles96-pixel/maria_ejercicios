@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mejor grupo de informática</title>
+</head>
+<body>
+    <script>
+        function hacerMedia(notasGrupo){
+            let total = 0;
+            for (let i = 0; i < notasGrupo.length; i++) {
+                total += notasGrupo[i];
+            }
+            return total/notasGrupo.length;
+        }
+
+        function aleatorio(num){
+            return (Math.random()*num).toFixed(0);
+        }
+
+        function rellenarNotas(notasGrupo){
+            for (let i = 0; i < aleatorio(30); i++) {
+                let nuevaNota = Math.random()*10;
+                notasGrupo.push(nuevaNota);
+            }
+        }
+
+        let grupos = {
+            "daw1" : rellenarNotas(),
+            "dam1" : rellenarNotas()
+        };
+        
+        alert(hacerMedia(grupos.daw1));
+        alert(hacerMedia(grupos.dam1));
+    </script>
+</body>
+</html>
