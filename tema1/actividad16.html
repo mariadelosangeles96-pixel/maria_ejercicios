@@ -19,6 +19,30 @@
             "pera": { stock: 8, precio: 2.20 }
         };
 
+        const peticiones = 3;
+        let frutasPedidas = "";
+        let cantidad = 0;
+
+        for (let i = 0; i <= peticiones; i++) {
+            let fruta = prompt("¿Qué fruta quieres?");
+            if(!inventario[fruta]){
+                alert("No tenemos de esa fruta.");
+            } else if(frutasPedidas.includes(fruta)){
+                alert("Ya has pedido esa fruta.");
+            } else {
+                cantidad = prompt("¿Cuántas piezas quieres?");
+                if(cantidad > inventario[fruta].stock){
+                    alert("No nos queda de esa fruta.")
+                } else{
+                    let coste = cantidad * inventario[fruta].precio;
+                    inventario[fruta].stock -= cantidad;
+                    frutasPedidas.push(fruta);
+                    alert(cantidad + " " + fruta + " añadido.")
+                }
+            }
+            
+
+        }
     </script>
 </body>
 
